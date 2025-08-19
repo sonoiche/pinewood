@@ -24,7 +24,7 @@ class Racer extends Model
 
     public function car()
     {
-        return $this->hasOne(Car::class, 'user_id');
+        return $this->hasOne(Car::class, 'racer_id');
     }
 
     public function team()
