@@ -112,6 +112,16 @@ npm install
 npm run dev
 ```
 
+### 3. Database Seeding
+Populate the database with sample racers and cars:
+```
+php artisan migrate:refresh --seed
+```
+This seeds 50 racers and 50 cars and also creates a default user you can use to log in:
+
+- **Email**: `test@example.com`
+- **Password**: `password`
+
 ## Step-by-step Instructions on How to run PHP tests
 1. Open Terminal and navigate to laravel project
 `cd pinewood_derby_web_application`

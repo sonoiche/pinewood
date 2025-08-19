@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('cars', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('racers')->onDelete('cascade');
+            $table->foreignId('racer_id')->constrained('racers')->onDelete('cascade');
             $table->foreignId('event_id')->constrained('events')->onDelete('cascade');
             $table->foreignId('category_id')->constrained('race_categories')->onDelete('cascade');
             $table->string('name');
