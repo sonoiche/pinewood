@@ -16,7 +16,8 @@ This deliverable contains the complete implementation of the **Heat Management a
 ---
 
 ## 📂 Project Structure
-# Since Laravel serves as both the backend and the foundation for the frontend, everything is typically kept inside a single project folder in a Laravel + React project setup.
+### Since Laravel serves as both the backend and the foundation for the frontend, everything is typically kept inside a single project folder in a Laravel + React project setup.
+```
 pinewood-derby-heat-management-module/
 │
 ├── app/ # Laravel app code (Models, Controllers) - (Backend)
@@ -31,7 +32,7 @@ pinewood-derby-heat-management-module/
 ├── screenshots/ # Feature screenshots
 ├── pinewood_derby_sample_data.json # Sample race data (provided)
 └── README.md # Project documentation
-
+```
 ---
 
 ## 🔄 Using the Sample JSON Data
@@ -44,7 +45,7 @@ The file pinewood_derby_sample_data.json contains mock data for development and 
 
 You can use this file in two ways:
 
-# Option A: Load via Seeder (Recommended)
+## Option A: Load via Seeder (Recommended)
 
 1. Move the JSON file to the database/data/ folder (create if needed).
 2. Create a custom seeder, for example: php artisan make:seeder SampleRaceDataSeeder
@@ -72,7 +73,7 @@ public function run()
 php artisan db:seed
 ```
 
-# Option B: Load Directly in UI (For Static Demos)
+## Option B: Load Directly in UI (For Static Demos)
 
 If you're not using a database:
 
@@ -119,8 +120,8 @@ php artisan migrate:refresh --seed
 ```
 This seeds 50 racers and 50 cars and also creates a default user you can use to log in:
 
-- **Email**: `test@example.com`
-- **Password**: `password`
+- **Email**: `jelson@saperemarketing.com`
+- **Password**: `Pa$$w0rd2025`
 
 ## Step-by-step Instructions on How to run PHP tests
 1. Open Terminal and navigate to laravel project

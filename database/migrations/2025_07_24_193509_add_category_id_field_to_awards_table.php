@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('awards', function (Blueprint $table) {
-            $table->foreignId('category_id')->constrained('race_categories')->onDelete('cascade')->after('event_id');
+            $table->integer('category_id')->after('event_id');
         });
     }
 

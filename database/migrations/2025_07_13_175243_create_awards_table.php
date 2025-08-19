@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('awards', function (Blueprint $table) {
             $table->id();
             $table->foreignId('event_id')->constrained('events')->onDelete('cascade');
-            $table->foreignId('car_id')->constrained('cars')->onDelete('cascade');
+            $table->integer('car_id');
             $table->string('title');
             $table->text('description')->nullable();
             $table->timestamps();

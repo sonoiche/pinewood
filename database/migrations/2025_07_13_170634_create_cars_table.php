@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('racer_id')->constrained('racers')->onDelete('cascade');
             $table->foreignId('event_id')->constrained('events')->onDelete('cascade');
-            $table->foreignId('category_id')->constrained('race_categories')->onDelete('cascade');
+            $table->integer('category_id');
             $table->string('name');
             $table->string('image_path')->nullable();
             $table->bigInteger('weight')->nullable();

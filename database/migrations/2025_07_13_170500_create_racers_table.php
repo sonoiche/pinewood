@@ -16,7 +16,7 @@ return new class extends Migration
             $table->integer('user_id')->nullable();
             $table->string('fname');
             $table->string('lname');
-            $table->foreignId('team_id')->constrained('teams')->onDelete('cascade')->nullable();
+            $table->integer('team_id')->nullable();
             $table->timestamps();
         });
     }

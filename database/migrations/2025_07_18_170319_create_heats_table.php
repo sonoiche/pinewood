@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('heats', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('category_id')->constrained('race_categories')->onDelete('cascade');
+            $table->integer('category_id');
             $table->integer('heat_number')->nullable();
             $table->timestamp('scheduled_at')->nullable();
             $table->enum('status', ['Pending','Running','Completed'])->default('Pending');
