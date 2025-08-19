@@ -1,0 +1,58 @@
+.sidebar-transition {
+    transform: translateY(-10px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.rotate-90 {
+    transform: rotate(90deg);
+}
+.dropdown-content {
+    transform: translateY(-10px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    max-height: 0;
+    overflow: hidden;
+}
+.dropdown-content.active {
+    max-height: 1000px;
+}
+.radio-input:checked + .radio-label {
+    border-color: #4f46e5;
+    background-color: #eef2ff;
+}
+
+.radio-input:focus + .radio-label {
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+}
+
+/* For better visual feedback on mobile devices */
+.radio-label {
+    transition: all 0.2s ease-in-out;
+}
+.custom-scrollbar::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+/* Animation for hover effect */
+@keyframes fadeIn {
+    from { background-color: transparent; }
+    to { background-color: #f8fafc; }
+}
+
+.hover-animate:hover {
+    animation: fadeIn 0.2s forwards;
+}
+.form-select {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAQCAYAAAAMJL+VAAAABGdBTUEAALGPC/xhBQAAAQtJREFUOBG1lEEOgjAQRalbGj2OG9caOACn4ALGtfEuHACiazceR1PWOH/CNA3aMiTaBDpt/7zPdBKy7M/DCL9pGkvxxVp7KsvyJftL5rZt1865M+Ucq6pyyF3hNcI7Cuu+728QYn/JQA5yKaempxuZmQngOwEaYx55nu+1lQh8GIatMGi+01NwBcEmhxBqK4nAPZJ78K0KKFAJmR3oPp8+Iwgob0Oa6+TLoeCvRx+mTUYf/FVBGTPRwDkfLxnaSrRwcH0FWhNOmrkWYbE2XEicqgSa1J0LQ+aPCuQgZiLnwewbGuz5MGoAhcIkCQcjaTBjMgtXGURMVHC1wcQEy0J+Zlj8bKAnY1/UzDe2dbAVqfXn6wAAAABJRU5ErkJggg==');
+    background-size: 0.7rem;
+    background-position: right 0.7rem center;
+}

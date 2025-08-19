@@ -1,0 +1,97 @@
+import { Head, router, usePage } from "@inertiajs/react";
+import AuthenticatedLayout from "../../Layouts/AuthenticatedLayout";
+import TextInput from "../../../Components/TextInput";
+import PrimaryButton from "../../../Components/PrimaryButton";
+import { useState } from "react";
+import { options } from "../../../Constant";
+import SelectBox from "../../../Components/SelectBox";
+
+const HeatEdit = ({ heat }) => {
+
+  const { auth } = usePage().props;
+  const { errors } = usePage().props;
+  const [data, setData] = useState({
+    event_id: '',
+    event_date: '',
+    user_id: auth.user?.id
+  });
+  
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setData({
+      ...data,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    router.put(`/client/events/${heat.id}`, data);
+  }
+
+  return (
+    <AuthenticatedLayout>
+      <Head title="Add New Event" />
+      <div className="w-full max-w-4xl">
+        <div className="bg-white rounded-lg form-container shadow-xl">
+          <div className="bg-indigo-400 p-6 text-white">
+            <h1 className="text-2xl font-semibold">Add New Heat</h1>
+            <p className="opacity-80">Please complete all fields</p>
+          </div>
+          <form id="eventForm" className="p-6 space-y-6" onSubmit={handleSubmit} noValidate>
+            <div className="grid grid-cols-12 gap-3">
+              <div className="col-span-12 mb-2">
+                <SelectBox
+                  title="Select Event"
+                  options={events}
+                  placeholder="Type in the event and press enter"
+                  onChange={selectEvent}
+                  errorMessage={errors.event_id}
+                />
+              </div>
+              <div className="col-span-6 mb-2">
+                <TextInput
+                  id="heat_number"
+                  type="number"
+                  name="heat_number"
+                  title="Heat Number"
+                  placeholder="Enter Heat Number"
+                  value={data.heat_number}
+                  onChange={handleChange}
+                  errorMessage={errors.heat_number}
+                />
+              </div>
+              <div className="col-span-6 mb-2">
+                <TextInput
+                  id="scheduled_at"
+                  type="datetime-local"
+                  name="scheduled_at"
+                  title="Scheduled"
+                  value={data.scheduled_at}
+                  onChange={handleChange}
+                  errorMessage={errors.scheduled_at}
+                />
+              </div>
+              <div className="col-span-6 mb-2">
+                <SelectBox
+                  title="Status"
+                  options={options.heatStatus}
+                  onChange={selectStatus}
+                  errorMessage={errors.status}
+                />
+              </div>
+            </div>
+            <div className="flex justify-end">
+              <PrimaryButton>
+                Save Changes
+              </PrimaryButton>
+            </div>
+          </form>
+        </div>
+      </div>
+    </AuthenticatedLayout>
+  );
+}
+
+export default HeatEdit;
