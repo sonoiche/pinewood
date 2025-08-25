@@ -17,14 +17,18 @@ class DatabaseSeeder extends Seeder
     {
         // create default user
         $user = User::factory()->create([
-            'name' => 'Test User',
+            'fname' => 'Test',
+            'lname' => 'User',
             'email' => 'test@example.com',
         ]);
 
         // setup a sample event and category for cars
         $event = Event::create([
-            'user_id' => $user->id,
-            'title' => 'Sample Event',
+            'user_id'   => $user->id,
+            'title'     => 'Sample Event',
+            'num_lanes' => 5,
+            'num_laps'  => 10,
+            'status'    => 'Upcoming'
         ]);
 
         RaceCategory::create([
